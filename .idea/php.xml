@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="/Applications/MAMP/htdocs/farm-7.x-1.1/includes" />
+      <path value="/Applications/MAMP/htdocs/farm-7.x-1.1/modules" />
+      <path value="/Applications/MAMP/htdocs/farm-7.x-1.1/sites/all/modules" />
+    </include_path>
+  </component>
+  <component name="PhpUnit">
+    <phpunit_settings>
+      <PhpUnitSettings custom_loader_path="" phpunit_phar_path="" />
+    </phpunit_settings>
+  </component>
+</project>

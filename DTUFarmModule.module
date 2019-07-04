@@ -1,0 +1,21 @@
+<?php
+/**
+* @file
+* A description of what your module does.
+*/
+
+function DTUFarmModule_init() {
+    drupal_add_js(drupal_get_path('module', 'DTUFarmModule') . '/js/client.js');
+    debug("JS tilføjet!");
+}
+
+function DTUFarmModule_menu() {
+    $items['abc/def'] = array(
+        'page callback' => 'DTU_abc_view',
+    );
+    return $items;
+}
+function DTUFarmModule_view($ghi = 0, $jkl = '') {
+
+    // ...
+}
