@@ -4,9 +4,20 @@
 * A description of what your module does.
 */
 
-function DTUFarmModule_init() {
-    drupal_add_js(drupal_get_path('module', 'DTUFarmModule') . '/js/client.js');
-    debug("JS tilføjet!");
+function DTUFarmModule_init() { // hook til at gøre noget på et givent event.
+
+    drupal_add_js(drupal_get_path('module', 'DTUFarmModule') . '/js/client.js'); // load JS til dynamisk indhold.
+
+    // SELECT * FROM menu_router WHERE path IN ('farm/areas', 'farm/%', 'farm') ORDER BY fit DESC LIMIT 0, 1
+/*
+    $res = db_query("SELECT t__0.* FROM openlayers_maps t__0 WHERE (machine_name IN ('farm_areas'))"); // hent data fra drupal SQL databsen.
+    $res2 = db_query("SELECT * FROM menu_router WHERE path IN ('farm/areas', 'farm/%', 'farm') ORDER BY fit DESC LIMIT 0, 1");
+    $res3 = db_query("SELECT * FROM geofield");
+
+    debug($res); // debug vises i drupal grænsefalden.
+    debug($res2);
+    debug($res3);
+*/
 }
 
 function DTUFarmModule_menu() {
@@ -18,4 +29,12 @@ function DTUFarmModule_menu() {
 function DTUFarmModule_view($ghi = 0, $jkl = '') {
 
     // ...
+}
+
+function DTUFarmModule_field_load($entity_type, $entities, $field, $instances, $langcode, &$items, $age){
+  debug("leaded field!!!!!");
+  debug($entity_type);
+  debug($entities);
+  debug($field);
+  debug($age);
 }
