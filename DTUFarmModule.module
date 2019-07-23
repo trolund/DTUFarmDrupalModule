@@ -9,20 +9,26 @@ function DTUFarmModule_init() { // hook til at gøre noget på et givent event.
     drupal_add_js(drupal_get_path('module', 'DTUFarmModule') . '/js/client.js'); // load JS til dynamisk indhold.
 
     // SELECT * FROM menu_router WHERE path IN ('farm/areas', 'farm/%', 'farm') ORDER BY fit DESC LIMIT 0, 1
-/*
+
+    // Hent data fra databasen:
+
     $res = db_query("SELECT t__0.* FROM openlayers_maps t__0 WHERE (machine_name IN ('farm_areas'))"); // hent data fra drupal SQL databsen.
     $res2 = db_query("SELECT * FROM menu_router WHERE path IN ('farm/areas', 'farm/%', 'farm') ORDER BY fit DESC LIMIT 0, 1");
     $res3 = db_query("SELECT * FROM geofield");
 
+    // udskriv i toppen af farmOs:
     debug($res); // debug vises i drupal grænsefalden.
     debug($res2);
     debug($res3);
-*/
+
+
+  // Http request
+    Getdata();
 }
 
 function DTUFarmModule_menu() {
-    $items['abc/def'] = array(
-        'page callback' => 'DTU_abc_view',
+    $items['DTU/def'] = array(
+        'DTU page callback' => 'DTU_abc_view',
     );
     return $items;
 }
@@ -31,10 +37,35 @@ function DTUFarmModule_view($ghi = 0, $jkl = '') {
     // ...
 }
 
+function DTUFarmModule_menu_insert($menu) {
+    // For example, we track available menus in a variable.
+    $my_menus = variable_get('DTUFarmModule_menus', array());
+    $my_menus[$menu['menu_name']] = $menu['menu_name'];
+    variable_set('DTUFarmModule_menus', $my_menus);
+}
+
 function DTUFarmModule_field_load($entity_type, $entities, $field, $instances, $langcode, &$items, $age){
   debug("leaded field!!!!!");
   debug($entity_type);
   debug($entities);
   debug($field);
   debug($age);
+}
+
+function GetData(){
+
+    //$data = 'name=value&name1=value1';
+    $options = array(
+        'method' => 'GET',
+        //'data' => $data,
+        'timeout' => 15,
+        'headers' => array(
+            'Content-Type' => 'application/x-www-form-urlencoded',
+           // 'Authorization' => 'Bearer 1234545332',
+        ),
+    );
+    $result = drupal_http_request('https://www.test-cors.org/', $options);
+
+    debug($result);
+
 }
