@@ -11,7 +11,7 @@ function DTUFarmModule_init() { // hook til at gøre noget på et givent event.
     // SELECT * FROM menu_router WHERE path IN ('farm/areas', 'farm/%', 'farm') ORDER BY fit DESC LIMIT 0, 1
 
     // Hent data fra databasen:
-
+/*
     $res = db_query("SELECT t__0.* FROM openlayers_maps t__0 WHERE (machine_name IN ('farm_areas'))"); // hent data fra drupal SQL databsen.
     $res2 = db_query("SELECT * FROM menu_router WHERE path IN ('farm/areas', 'farm/%', 'farm') ORDER BY fit DESC LIMIT 0, 1");
     $res3 = db_query("SELECT * FROM geofield");
@@ -20,7 +20,7 @@ function DTUFarmModule_init() { // hook til at gøre noget på et givent event.
     debug($res); // debug vises i drupal grænsefalden.
     debug($res2);
     debug($res3);
-
+*/
 
   // Http request
    // Getdata();
@@ -45,11 +45,13 @@ function DTUFarmModule_menu_insert($menu) {
 }
 
 function DTUFarmModule_field_load($entity_type, $entities, $field, $instances, $langcode, &$items, $age){
+    /*
   debug("leaded field!!!!!");
   debug($entity_type);
   debug($entities);
   debug($field);
   debug($age);
+    */
 }
 
 /*
