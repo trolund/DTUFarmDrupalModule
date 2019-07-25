@@ -23,7 +23,7 @@ function DTUFarmModule_init() { // hook til at gøre noget på et givent event.
 
 
   // Http request
-    Getdata();
+   // Getdata();
 }
 
 function DTUFarmModule_menu() {
