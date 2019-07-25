@@ -52,6 +52,7 @@ function DTUFarmModule_field_load($entity_type, $entities, $field, $instances, $
   debug($age);
 }
 
+/*
 function GetData(){
 
     //$data = 'name=value&name1=value1';
@@ -69,3 +70,4 @@ function GetData(){
     debug($result);
 
 }
+*/
